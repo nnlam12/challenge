@@ -28,12 +28,14 @@
         </button>
     </form>
     <?php
+    ob_start();
     session_start();
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['cat'] = true;
         header('Location: ./login.php');
         exit();
     }
+    ob_end_flush();
     ?>
 
     <script>
