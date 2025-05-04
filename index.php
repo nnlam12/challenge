@@ -1,3 +1,12 @@
+<?php
+    ob_start();
+    session_start();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $_SESSION['cat'] = true;
+        header('Location: ./login.php');
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,23 +36,6 @@
             <img id="spinningCat" src="oia-uia.gif" alt="Spinning Cat" style="display:block; margin:auto;">
         </button>
     </form>
-    <?php
-    ob_start();
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-    if (headers_sent($file, $line)) {
-        die("Headers already sent in $file on line $line");
-    }
-
-    session_start();
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $_SESSION['cat'] = true;
-        header('Location: ./login.php');
-        exit();
-    }
-    ob_end_flush();
-    ?>
-
     <script>
         const button = document.getElementById('catButton');
         const cat = document.getElementById('spinningCat');
