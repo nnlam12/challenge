@@ -15,7 +15,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Admin Template</title>
+    <title>Fish Kingdom</title>
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -23,34 +23,41 @@ if (!isset($_SESSION['username'])) {
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: url('../backgrounds/fish_kingdom.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Karla', sans-serif;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 font-family-karla flex">
 
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
-            <a href="index.php" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">INSA</a>
+            <a href="index.php" class="text-white text-3xl font-semibold  hover:text-gray-300">Fish Kingdom</a>
         </div>
         <nav class="text-white text-base font-semibold pt-3">
             <a href="#" data-url="home.php" class="menu-item flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-sticky-note mr-3"></i>
-                Home
+                <i class="fas fa-archway mr-3"></i>
+                Entrance
             </a>
             <a href="#" data-url="tables.php" class="menu-item flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-table mr-3"></i>
-                Tables
+                <i class="fas fa-utensils mr-3"></i>
+                Dinning Hall
             </a>
-            <a href="#" data-url="admin.php" class="menu-item flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-align-left mr-3"></i>
-                Admin
+            <a href="#" data-url="tower.php" class="menu-item flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-vihara mr-3"></i>
+                Tower
             </a>
-            <a href="#" data-url="tabs.php" class="menu-item flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-tablet-alt mr-3"></i>
-                Nouvelles
+            <a href="#" data-url="bank.php" class="menu-item flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-money-check-alt mr-3"></i>
+                Bank
             </a>
-            <a href="#" data-url="calendar.php" class="menu-item flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-calendar mr-3"></i>
-                Calendrier
+            <a href="#" data-url="prison.php" class="menu-item flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-lock mr-3"></i>
+                Prison
             </a>
         </nav>
 
@@ -58,79 +65,9 @@ if (!isset($_SESSION['username'])) {
 
     <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
         
-            <!-- Desktop Header -->
-    <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
-        <div class="w-1/2"></div>
-        <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
-            <button @click="isOpen = !isOpen"
-                class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
-                <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400">
-            </button>
-            <button x-show="isOpen" @click="isOpen = false"
-                class="h-full w-full fixed inset-0 cursor-default"></button>
-            <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
-                <a href="#" class="block px-4 py-2 account-link hover:text-white">Account</a>
-                <a href="#" class="block px-4 py-2 account-link hover:text-white">Support</a>
-                <a href="#" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
-            </div>
-        </div>
-    </header>
 
     <!-- Mobile Header & Nav -->
-    <header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
-        <div class="flex items-center justify-between">
-            <a href="index.php" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">INSA</a>
-            <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
-                <i x-show="!isOpen" class="fas fa-bars"></i>
-                <i x-show="isOpen" class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <!-- Dropdown Nav -->
-        <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
-
-            <a href="home.php"
-                class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                <i class="fas fa-sticky-note mr-3"></i>
-                Home
-            </a>
-            <a href="tables.php"
-                class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                <i class="fas fa-table mr-3"></i>
-                Tables
-            </a>
-            <a href="admin.php"
-                class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                <i class="fas fa-align-left mr-3"></i>
-                Admin
-            </a>
-            <a href="tabs.php" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
-                <i class="fas fa-tablet-alt mr-3"></i>
-                Nouvelles
-            </a>
-            <a href="calendar.php"
-                class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                <i class="fas fa-calendar mr-3"></i>
-                Calendrier
-            </a>
-            <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                <i class="fas fa-cogs mr-3"></i>
-                Support
-            </a>
-            <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                <i class="fas fa-user mr-3"></i>
-                My Account
-            </a>
-            <a href="#" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                <i class="fas fa-sign-out-alt mr-3"></i>
-                Sign Out
-            </a>
-
-        </nav>
-        <!-- <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-            <i class="fas fa-plus mr-3"></i> New Report
-        </button> -->
-    </header>
+    
 
         <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
@@ -141,9 +78,7 @@ if (!isset($_SESSION['username'])) {
                 <!-- Content goes here! -->
             </main>
 
-            <footer class="w-full bg-white text-right p-4">
-                Built by <a target="_blank" href="https://github.com/HuyBadPi" class="underline">HuyBadPi</a>
-            </footer>
+            
         </div>
 
     </div>

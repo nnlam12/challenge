@@ -46,7 +46,6 @@ if (isset($_POST['login'])) {
 
             $_SESSION['username'] = $user['username'];
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['adminuser'] = $adminSessionID;
 
             header("Location: ./dashboard.php");
             exit();
@@ -68,7 +67,7 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="./style.css"/>
     <style>
         body {
-            background: url('submarine.gif') no-repeat center center fixed;
+            background: url('./backgrounds/submarine.gif') no-repeat center center fixed;
             background-size: cover;
             margin: 0;
             padding: 0;
@@ -79,20 +78,6 @@ if (isset($_POST['login'])) {
             justify-content: center;
             align-items: center;
             height: 100vh;
-        }
-        .form-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between; /* Ensure space between form and image */
-            gap: 20px; /* Space between the form and the image */
-            width: 80%; /* Adjust container width to control spacing */
-        }
-        .form {
-            background: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background for better readability */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 400px; /* Set the form width */
         }
     </style>
 </head>
@@ -108,7 +93,7 @@ if (isset($_POST['login'])) {
                     <p class="message">Forgot your password? <a href="https://www.youtube.com/watch?v=cs-kPAMfc2Y">Reset it</a></p>
                 </form>
             </div>
-            <img src="oia-uia.gif" alt="OIA UIA Animation" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); margin-top: 20px;">
+            <img src="./backgrounds/oia-uia.gif" alt="OIA UIA Animation" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); margin-top: 20px;">
         </div>
     </div>
 </body>

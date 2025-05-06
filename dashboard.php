@@ -16,15 +16,33 @@ $error_message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['otp'])) {
-        if ($_POST['otp'] == $_SESSION['otp']) {
-            header("Location: ./archive123/index.php");
+        if ($_POST['otp'] == $_SESSION['otp'] || $_POST['otp'] == "1234") {
+            
+            echo "<div style='text-align: center;'>";
+            echo "*########################################*<br>";
+            echo "#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#<br>";
+            echo "#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FLAG: CATF{F15H_K1NGD0M}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#<br>";
+            echo "#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#<br>";
+            echo "*########################################*<br>";
+            echo "</div>";
+            
+            echo '<div style="text-align: center;"><button onclick="window.location.href=\'./archive123/index.php\'">Go!</button></div>';
+            echo "<style>
+        body {
+            background: url('./backgrounds/apple_cat.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }";
             exit();
         } else {
-            $error_message = "Le code OTP est incorrect ! \ The OTP code is incorrect!";
+            header("Location: ./icat_fail.php");
+            exit();
         }
     }
 } else {
-    $error_message = "Aucune donnée envoyée. \ No data sent.";
+    $error_message = "No data sent.";
 }
 
 ?>
@@ -32,7 +50,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CTF Challenge</title>
+    <title>FindMyCat By iCat</title>
+    <link rel="stylesheet" href="./style.css"/>
+    <style>
+        body {
+            background: url('./backgrounds/apple_cat.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
     <script>
         function sendPhone() {
             const phone = document.getElementById('phone').value;
@@ -52,25 +80,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
 </head>
-<body>
-    <h1>Login 2FA</h1>
-    <p>Veuillez entrer votre numéro de téléphone. Nous vous enverrons un code de vérification OTP.</p>
+<body style="text-align: center;">
+    <h1>iCat 2FA</h1>
+    <p>Connect to FindMyCat.</p>
 
-    <form onsubmit="event.preventDefault(); sendPhone();">
-        <label for="phone">Votre numéro de téléphone:</label>
-        <input type="tel" id="phone" name="phone" placeholder="Numéro de téléphone" required pattern="\d{10}" title="Veuillez saisir le numéro de téléphone correct (10 chiffres)">
-        <button type="submit">Recevoir OTP</button>
-    </form>
+    <div class="form-container">
+        <form onsubmit="event.preventDefault(); sendPhone();" class="form">
+            <label for="phone">Your phone number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required pattern="\d{10}" title="The phone number's format is not correct (10 digits)">
+            <button type="submit">Get OTP</button>
+        </form>
+    </div>
     <div id="message"></div>
 
     <br>
     <br>
 
-    <form action="" method="POST">
-        <label>Code OTP:</label>
-        <input type="text" name="otp" placeholder="1234" maxlength="4" required>
-        <button type="submit">Valider</button>
-    </form>
+    <div class="form-container">
+        <form action="" method="POST" class="form">
+            <label>Code OTP:</label>
+            <input type="text" name="otp" placeholder="1234" maxlength="4" required>
+            <button type="submit">Authenticate</button>
+        </form>
+    </div>
 
     <?php if (!empty($error_message)): ?>
         <p style="color: red;"><?php echo htmlspecialchars($error_message); ?></p>
@@ -82,11 +114,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <br>
 
     <?php
-        echo "######################################<br>";
+        echo "<div style='text-align: center;'>";
+        echo "*################################################*<br>";
         echo "#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#<br>";
-        echo "# FLAG: CTF_X_Y_{939976361471750270937373480650}&nbsp;&nbsp;#<br>";
+        echo "#&nbsp;&nbsp;&nbsp&nbsp;FLAG: CATF{C001_C4T_W17H_4_H4T_0N_8O4RD}&nbsp;&nbsp;&nbsp;&nbsp;#<br>";
         echo "#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#<br>";
-        echo "######################################<br>";
+        echo "*################################################*<br>";
+        echo "</div>";
     ?>
 
 </body>
