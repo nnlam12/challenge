@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Access Denied</title>
+    <link rel="icon" href="./backgrounds/favicon.ico" type="image/x-icon">
     <style>
         body {
             background: url(./backgrounds/banana_cat.png) no-repeat center center;

@@ -16,7 +16,7 @@ $error_message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['otp'])) {
-        if ($_POST['otp'] == $_SESSION['otp'] || $_POST['otp'] == "1234") {
+        if ($_POST['otp'] == $_SESSION['otp'] ) {
             
             echo "<div style='text-align: center;'>";
             echo "*########################################*<br>";
@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <title>FindMyCat By iCat</title>
     <link rel="stylesheet" href="./style.css"/>
+    <link rel="icon" href="./backgrounds/favicon.ico" type="image/x-icon">
     <style>
         body {
             background: url('./backgrounds/apple_cat.png') no-repeat center center fixed;
