@@ -7,9 +7,9 @@ if (!isset($_SESSION['username'])) {
 ?>
 
 <h1 class="text-3xl text-black pb-6">Congrats, the team has successfully infiltrated in the Fish Kingdom as <strong>Catfish</strong>.</h1>
-<img src="../backgrounds/cat_fish.png" alt="CatFish" style="width: 10%; max-width: 400px; display: block; margin: auto;" />
+<img src="../backgrounds/cat_fish.png" alt="CatFish" style="width: 15%; max-width: 400px; display: block; margin: auto;" />
 <?php
     echo "###########################################<br>";
-    echo "# FLAG: CTF_X_Y_{677956422481540597995464685999}&nbsp;&nbsp;#<br>";
+    echo "# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp; FLAG: CATF{C4T_F15H3D}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#<br>";
     echo "###########################################<br>";
 ?>
