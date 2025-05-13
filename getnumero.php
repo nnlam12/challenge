@@ -1,6 +1,5 @@
 <?php
 
-include('./configdb.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize and validate the input
