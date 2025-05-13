@@ -20,7 +20,6 @@ if (isset($_POST['login'])) {
             $customSessionID = custom_encrypt($data, $key);
 
             session_id($customSessionID);
-            session_start();
 
             $_SESSION['username'] = $usr;
 
