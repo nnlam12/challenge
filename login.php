@@ -6,46 +6,23 @@ if (!isset($_SESSION['cat']) || $_SESSION['cat'] === false) {
     exit();
 }
 
-include("./configdb.php");
-include("./encode.php");
-
-try {
-    // Establish database connection
-    $db = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo "Database connection failed: " . $e->getMessage();
-    exit();
-}
-
 // Handle login form submission
 if (isset($_POST['login'])) {
     $usr = trim($_POST['username']);
     $pwd = trim($_POST['password']);
 
     if (!empty($usr) && !empty($pwd)) {
-        // Use prepared statements for security
-        $stmt = $db->prepare("SELECT * FROM $table_name_user WHERE username = :username AND password = :password");
-        $stmt->execute([
-            ':username' => $usr,
-            ':password' => $pwd
-        ]);
-
-        if ($stmt->rowCount() > 0) {
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+        // Hardcoded credential check
+        if ($usr === 'oiiacat_ethel' && $pwd === 'coolcat') {
             $key = "secret_key_" . rand(100000, 999999);
-            $data = '{"username":"' . $user['nom'] . '","role":"' . $user['role'] . '","key":"' . $key . '"}';
-            $dataAdmin = '{"username":"olivier","role":"admin","key":"' . $key . '"}';
+            $data = '{"username":"' . $usr . '","role":"user","key":"' . $key . '"}';
 
             $customSessionID = custom_encrypt($data, $key);
-            $adminSessionID = custom_encrypt($dataAdmin, $key);
 
             session_id($customSessionID);
             session_start();
 
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $usr;
 
             header("Location: ./dashboard.php");
             exit();
