@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include('./encode.php');
 if (!isset($_SESSION['cat']) || $_SESSION['cat'] === false) {
     header("Location: ./index.php");
     exit();
