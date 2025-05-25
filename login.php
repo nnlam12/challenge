@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include('./encode.php');
 if (!isset($_SESSION['cat']) || $_SESSION['cat'] === false) {
     header("Location: ./index.php");
     exit();
@@ -8,8 +8,8 @@ if (!isset($_SESSION['cat']) || $_SESSION['cat'] === false) {
 
 // Handle login form submission
 if (isset($_POST['login'])) {
-    $usr = trim($_POST['username']);
-    $pwd = trim($_POST['password']);
+    $usr = htmlspecialchars(trim($_POST['username']), ENT_QUOTES, 'UTF-8');
+    $pwd = htmlspecialchars(trim($_POST['password']), ENT_QUOTES, 'UTF-8');
 
     if (!empty($usr) && !empty($pwd)) {
         // Hardcoded credential check
@@ -20,7 +20,6 @@ if (isset($_POST['login'])) {
             $customSessionID = custom_encrypt($data, $key);
 
             session_id($customSessionID);
-            session_start();
 
             $_SESSION['username'] = $usr;
 
@@ -74,7 +73,7 @@ if (isset($_POST['login'])) {
             </div>
             <img src="./backgrounds/oia-uia.gif" alt="OIA UIA Animation" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); margin-top: 20px;">
         </div>
-        <!--Feel free to follow me on Instagram, until then oiia oiia...-->
+                <!--Feel free to follow me on Instagram, until then oiia oiia...-->
     </div>
 </body>
 </html>
