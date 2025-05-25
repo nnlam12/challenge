@@ -73,6 +73,7 @@ if (isset($_POST['login'])) {
             </div>
             <img src="./backgrounds/oia-uia.gif" alt="OIA UIA Animation" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); margin-top: 20px;">
         </div>
+                <!--Feel free to follow me on Instagram, until then oiia oiia...-->
     </div>
 </body>
 </html>
